@@ -23,7 +23,7 @@ describe('Searching Restaurants', () => {
 
   const constructPresenter = () => {
     favoriteRestaurants = {
-      getAllRestaurants: jest.fn(),
+      getAllRestaurant: jest.fn(),
       searchRestaurants: jest.fn(),
     };
     presenter = new FavoriteRestaurantSearchPresenter({
@@ -125,7 +125,7 @@ describe('Searching Restaurants', () => {
 
   describe('When query is empty', () => {
     it('Should capture the query as empty', () => {
-      favoriteRestaurants.getAllRestaurants.mockImplementation(() => []);
+      favoriteRestaurants.getAllRestaurant.mockImplementation(() => []);
 
       searchRestaurants(' ');
       expect(presenter.latestQuery.length).toEqual(0);
@@ -141,11 +141,11 @@ describe('Searching Restaurants', () => {
     });
 
     it('Should show all favorite Restaurants', () => {
-      favoriteRestaurants.getAllRestaurants.mockImplementation(() => []);
+      favoriteRestaurants.getAllRestaurant.mockImplementation(() => []);
 
       searchRestaurants('    ');
 
-      expect(favoriteRestaurants.getAllRestaurants).toHaveBeenCalled();
+      expect(favoriteRestaurants.getAllRestaurant).toHaveBeenCalled();
     });
   });
 
